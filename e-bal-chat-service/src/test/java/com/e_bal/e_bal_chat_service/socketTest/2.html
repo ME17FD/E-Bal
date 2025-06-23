@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STOMP WebSocket Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+<body>
+  <h2>STOMP WebSocket Test: User 2 ➜ User 1</h2>
+  <p>You're logged in as <strong>User 2</strong> (sender). Messages will be sent to <strong>User 1</strong>.</p>
+
+  <label>Message: <input id="content" type="text" /></label><br/><br/>
+  <button onclick="connect()">Connect as User 2</button>
+  <button onclick="sendMessage()">Send Message</button>
+
+  <h3>📨 Messages Received by User 2</h3>
+  <pre id="output" style="background:#f5f5f5; padding:10px; border:1px solid #ccc;"></pre>
+
+  <script>
+    let stompClient = null;
+
+    const senderId = 2;
+    const recipientId = 1;
+
+    function connect() {
+      const socket = new SockJS('http://localhost:8080/ws-chat');
+      stompClient = Stomp.over(socket);
+
+      stompClient.connect({}, () => {
+        log('✅ Connected as User 2');
+        stompClient.subscribe('/user/' + senderId + '/queue/messages', (message) => {
+          log('📩 ' + message.body);
+        });
+      });
+    }
+
+    function sendMessage() {
+      const content = document.getElementById('content').value;
+
+      const payload = {
+        senderId: senderId,
+        recipientId: recipientId,
+        content: content
+      };
+
+      stompClient.send('/app/chat.sendMessage', {}, JSON.stringify(payload));
+      log('📤 Sent: ' + JSON.stringify(payload));
+    }
+
+    function log(message) {
+      document.getElementById('output').textContent += message + '\n';
+    }
+  </script>
+</body>
+</html>
