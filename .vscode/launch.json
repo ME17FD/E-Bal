@@ -9,6 +9,16 @@
             "projectName": "e-bal-chat-service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DiscoveryServerApplication<e-bal-discovery-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_discovery_server.DiscoveryServerApplication",
+            "projectName": "e-bal-discovery-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
