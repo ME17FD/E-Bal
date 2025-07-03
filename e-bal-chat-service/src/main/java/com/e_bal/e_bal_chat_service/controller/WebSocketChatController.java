@@ -49,4 +49,6 @@ public class WebSocketChatController {
         // Send to recipient
         messagingTemplate.convertAndSendToUser(recipientId.toString(), "/queue/messages", chatMessageDTO);
     }
+
+    
 }

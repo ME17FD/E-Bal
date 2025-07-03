@@ -30,6 +30,7 @@ public class ChatMessage {
     @ManyToOne
     private Chat chat;
 
+    private ChatImage chatImage;
     private Long senderId;
     private Long recipientId;
     private String content;
