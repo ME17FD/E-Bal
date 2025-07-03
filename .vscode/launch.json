@@ -8,7 +8,8 @@
             "mainClass": "com.e_bal.e_bal_chat_service.ChatServiceApplication",
             "projectName": "e-bal-chat-service",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64356 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=e-bal-chat-service"
         },
         {
             "type": "java",
@@ -18,7 +19,8 @@
             "mainClass": "com.e_bal.e_bal_discovery_server.DiscoveryServerApplication",
             "projectName": "e-bal-discovery-server",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64590 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=e-bal-discovery-server"
         },
         {
             "type": "java",
@@ -27,6 +29,49 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.e_bal.e_bal_product_service.ProductServiceApplication",
             "projectName": "e-bal-product-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64612 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=e-bal-product-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayApplication<e-bal-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_gateway.GatewayApplication",
+            "projectName": "e-bal-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64429 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=e-bal-gateway"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderServiceApplication<e-bal-order-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_order_service.OrderServiceApplication",
+            "projectName": "e-bal-order-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RecommendationServiceApplication<e-bal-recommendation-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_recommendation_service.RecommendationServiceApplication",
+            "projectName": "e-bal-recommendation-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserServiceApplication<e-bal-user-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_user_service.UserServiceApplication",
+            "projectName": "e-bal-user-service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
