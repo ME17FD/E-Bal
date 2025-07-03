@@ -19,6 +19,16 @@
             "projectName": "e-bal-discovery-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductServiceApplication<e-bal-product-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.e_bal.e_bal_product_service.ProductServiceApplication",
+            "projectName": "e-bal-product-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

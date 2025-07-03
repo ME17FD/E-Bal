@@ -17,7 +17,7 @@ public class ChatServiceApplication {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("-------------DB_URL = " + System.getenv("DB_URL"));
+		System.out.println("-------------CHAT_DB_URL = " + System.getenv("DB_URL"));
 		SpringApplication.run(ChatServiceApplication.class, args);
 	}
 
