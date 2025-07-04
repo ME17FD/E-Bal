@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.Objects;
 import com.e_bal.e_bal_chat_service.models.Chat;
 import com.e_bal.e_bal_chat_service.models.ChatMessage;
 import com.e_bal.e_bal_chat_service.repository.ChatMessageRepository;
@@ -46,4 +46,23 @@ public class ChatService {
         }
         return chat;
     }
+
+    public void updateLastSeenMessage(Long chatId, Long userId, Long messageId) {
+        Chat chat = chatRepository.findById(chatId)
+            .orElseThrow(() -> new RuntimeException("Chat not found"));
+
+        ChatMessage message = chatMessageRepository.findById(messageId)
+            .orElseThrow(() -> new RuntimeException("Message not found"));
+
+        if (Objects.equals(chat.getUser1(), userId)) {
+            chat.setLastSeenUser1(message);
+        } else if (Objects.equals(chat.getUser2(), userId)) {
+            chat.setLastSeenUser2(message);
+        } else {
+            throw new RuntimeException("User does not belong to this chat");
+        }
+
+        chatRepository.save(chat);
+    }
+
 } 
